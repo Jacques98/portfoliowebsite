@@ -1,0 +1,107 @@
+     /* General Styles */
+     html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      font-family: 'Bebas Neue', sans-serif;
+      color: #fff;
+    }
+
+    /* Navigation Buttons */
+    .buttons {
+      font-size: 33px;
+      color: white;
+      position: absolute;
+      top: 7px;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.5s ease-in-out;
+      text-decoration: none;
+    }
+
+    .buttons:hover {
+      color: grey;
+      opacity: 0.5;
+    }
+
+    .buttons:active {
+      color: red;
+      opacity: 0.6;
+    }
+
+    /* Positioning for each navigation link */
+    #Home { left: 1400px; z-index: 5; }
+    #Intro { left: 1465px; z-index: 4; }
+    #AboutMe { left: 1530px; z-index: 6; }
+    #Videography { left: 1735px; z-index: 7; }
+    #Projects { left: 1635px; z-index: 8; }
+
+    /* Contact Form Section */
+    .contact-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 50px); /* Leaves space for the navigation bar */
+      padding-top: 50px;
+    }
+
+    .title-text {
+      font-family: "Darker Grotesque", sans-serif;
+      font-weight: 700;
+    }
+
+    .contact-left {
+      width: 50%;
+      max-width: 600px;
+      padding: 20px; /* Reduced padding from 40px */
+      background-color: #000;
+      border: 1px solid #fff;
+      border-radius: 5px;
+    }
+
+
+    .contact-left h2 {
+      color: white;
+      font-size: 36px;
+      margin-bottom: 20px;
+      margin-top: 0; /* Reduce or remove top margin */
+      text-align: center;
+    }
+
+
+    .contact-inputs {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid #fff;
+      background-color: #000;
+      color: white;
+      font-size: 18px;
+      box-sizing: border-box;
+    }
+
+    .contact-inputs::placeholder {
+      color: #bbb;
+    }
+
+    /* Larger text area for "Your Message" */
+    textarea.contact-inputs {
+      height: 200px;
+      resize: none;
+    }
+
+    .contact-left button {
+      width: 100%;
+      padding: 15px;
+      background-color: #fff;
+      color: #000;
+      font-size: 18px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+
+    .contact-left button:hover {
+      background-color: grey;
+      color: white;
+    }

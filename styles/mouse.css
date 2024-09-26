@@ -1,0 +1,23 @@
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
+
+/* Custom cursor dot */
+.cursor {
+  position: absolute;
+  width: 20px; /* Initial size of the dot */
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none; /* Ensure it doesn't interfere with clicking */
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  opacity: 1; /* Fully visible */
+  z-index: 1000; /* Make sure it appears above all other elements */
+}
+
+/* On click: shrink and lower opacity */
+.click-effect {
+  transform: scale(0.5); /* Shrink the dot */
+  opacity: 0.5; /* Lower opacity */
+}

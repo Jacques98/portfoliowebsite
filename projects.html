@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/projects.css">
+    <title>Projects</title>
+</head>
+<body>
+
+    <!-- Image Gallery Container -->
+    <div class="image-gallery">
+        <!-- Replace these image paths with the actual paths to your high-resolution images -->
+        <img src="Website_Assets/Projects/demo1.webp" alt="Image 1" aria-description="Movie poster concept">
+        <img src="Website_Assets/Projects/demo2.webp" alt="Image 2" aria-description="Government Secrets">
+        <img src="Website_Assets/Projects/demo3.webp" alt="Image 3" aria-description="Spacemen">
+        <img src="Website_Assets/Projects/demo4.webp" alt="Image 4" aria-description="Movie poster concept">
+        <img src="Website_Assets/Projects/demo5.webp" alt="Image 5" aria-description="No Soda">
+        <img src="Website_Assets/Projects/demo6.webp" alt="Image 6" aria-description="Scavenger">
+        <img src="Website_Assets/Projects/demo7.webp" alt="Image 7" aria-description="Matteo, A nice Italian guy I met skating in Barcelona">
+        <img src="Website_Assets/Projects/demo8.webp" alt="Image 8" aria-description="Cover for my work-in-progress comic">
+        <img src="Website_Assets/Projects/demo9.webp" alt="Image 9" aria-description="The first page from my work-in-progress comic">
+        <img src="Website_Assets/Projects/demo10.webp" alt="Image 10" aria-description="My childhood friend, Daniel.">
+        <img src="Website_Assets/Projects/demo11.webp" alt="Image 11" aria-description="El Born, a popular Barcelona skate spot">
+        <img src="Website_Assets/Projects/demo12.webp" alt="Image 12" aria-description="Skateboard friends">
+        <img src="Website_Assets/Projects/demo13.webp" alt="Image 13" aria-description="Sants, an interesting skate spot found in front of a train station">
+        <img src="Website_Assets/Projects/demo14.webp" alt="Image 14" aria-description="Smoking kills">
+        <img src="Website_Assets/Projects/demo15.webp" alt="Image 15" aria-description="Lino, my oldest living relative">
+        <img src="Website_Assets/Projects/demo16.webp" alt="Image 16" aria-description="My uncle">
+        <img src="Website_Assets/Projects/demo17.webp" alt="Image 17" aria-description="A beautiful photography wall in El Born">
+        <img src="Website_Assets/Projects/demo18.webp" alt="Image 18" aria-description="My friends at El Born">
+    </div>
+        <div class="WebText">
+            <a href="index.html" id="Intro" class="buttons">Intro</a>
+            <a href="fullwebsite.html" id="Home" class="buttons">Home</a>
+            <a href="aboutme.html" id="AboutMe" class="buttons">About Me</a>
+            <a href="videography.html" id="Videography" class="buttons">Videography</a>
+            <a href="contact.html" id="Contact" class="buttons">Contact</a>
+        </div>
+    </div>
+
+    <!-- Modal for displaying full-size image -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Full-size Image">
+            <div class="modal-description" id="modalDescription"></div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("imageModal");
+
+        // Get the image and description elements in the modal
+        var modalImage = document.getElementById("modalImage");
+        var modalDescription = document.getElementById("modalDescription");
+
+        // Get all images in the gallery
+        var images = document.querySelectorAll(".image-gallery img");
+
+        // When an image is clicked, display it in the modal
+        images.forEach(function(image) {
+            image.onclick = function() {
+                modal.style.display = "flex";
+                modalImage.src = this.src;
+                modalDescription.textContent = this.getAttribute("aria-description");
+            }
+        });
+
+        // Get the <span> element that closes the modal
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal content, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

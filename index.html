@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
+
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .video-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+
+      video {
+        width: 1920px;
+        height: 1080px;
+        object-fit: cover;
+        position: relative;
+        z-index: 1;
+      }
+
+      .content {
+          position: relative;
+          z-index: 3;
+      }
+
+      /* Invisible clickable box */
+      .invisible-box {
+        position: absolute;
+        top: 935px; /* Adjust the position relative to the video */
+        left: 270px;
+        width: 122px;
+        height: 70px;
+        opacity: 0;
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      .tip {
+        font-family: "Darker Grotesque", sans-serif;
+        font-weight: 400;
+        font-size: 50px;
+        color: white;
+        font-style: normal;
+        position: absolute;
+        top: 300px;
+        left: 1300px;
+        z-index: 8;
+      }
+
+      .instruction {
+        font-family: "Darker Grotesque", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        color: white;
+        position: absolute;
+        top: 935px;
+        left: 140px;
+        z-index: 7;
+        animation: pulse 4s ease-in-out infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.05);
+          opacity: 0.9;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Video Background -->
+    <div class="video-container">
+      <video autoplay muted loop disableRemotePlayback>
+        <source src="Website_Assets/Splashpage.mp4" type="video/mp4">
+      </video>
+
+      <!-- Invisible Clickable Box -->
+      <div class="invisible-box" onclick="window.location.href='fullwebsite.html';"></div>
+      <!-- Instruction Text with More Subtle Pulsating Effect -->
+      <a class="instruction">Click here ></a>
+      <a class="tip">For the intended experience, run this website at full resolution.</a>
+    </div>
+
+    <script>
+      $(document).ready(function() {
+          // Attach an event handler to the mousemove event
+          $(document).mousemove(function(event) {
+              $('html, body').scrollTop(function(index, currentScrollPosition) {
+                  var windowHeight = $(window).height();
+                  var verticalDifference = event.clientY - windowHeight / 2;
+                  return currentScrollPosition + verticalDifference * 0.02;
+              });
+
+              $('html, body').scrollLeft(function(index, currentScrollPosition) {
+                  var windowWidth = $(window).width();
+                  var horizontalDifference = event.clientX - windowWidth / 2;
+                  return currentScrollPosition + horizontalDifference * 0.02;
+              });
+          });
+      });
+    </script>
+  </body>
+</html>

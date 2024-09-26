@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/aboutme.css">
+</head>
+
+<body>
+    <div class="zoom-container">
+        <div>
+            <video class="video-background" autoplay muted loop disableRemotePlayback>
+                <source src="Website_Assets/Aboutme.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="WebText">
+            <a href="index.html" id="Intro" class="parallax-text">Intro</a>
+            <a href="fullwebsite.html" id="Home" class="parallax-text">Home</a>
+            <a href="projects.html" id="Projects" class="parallax-text">Projects</a>
+            <a href="videography.html" id="Videography" class="parallax-text">Videography</a>
+            <a href="contact.html" id="Contact" class="parallax-text">Contact</a>
+            <a class="tip">Click anywhere to zoom in and out.</a>
+            <!-- Download button -->
+            <a href="Website_Assets/SiteResume.pdf" download="SiteResume - Alessandro Rabellino" class="download-btn" id="Download">Download File</a>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+    // Track zoom state and mouse position
+    var isZoomedIn = false;
+    var zoomScale = 2;
+    var mouseX = 0, mouseY = 0;
+
+    // Handle mouse movement for smooth scrolling
+    $(document).mousemove(function(event) {
+        mouseX = event.pageX;
+        mouseY = event.pageY;
+
+        movePage();
+    });
+
+    // Function to move the page smoothly based on mouse position
+    function movePage() {
+        var windowWidth = $(window).width();
+        var windowHeight = $(window).height();
+        var offsetX = (mouseX - windowWidth / 2) * 0.01;
+        var offsetY = (mouseY - windowHeight / 2) * 0.01;
+
+        $('html, body').scrollTop(function(index, currentScrollPosition) {
+            return currentScrollPosition + offsetY;
+        });
+
+        $('html, body').scrollLeft(function(index, currentScrollPosition) {
+            return currentScrollPosition + offsetX;
+        });
+    }
+
+    // Prevent zoom when clicking the download button
+    $('#Download', '#Intro', '#Videography', '#Home', '#Projects', '#Contact').on('click', function(e) {
+        e.stopPropagation(); // Prevent click from triggering zoom
+    });
+
+    // Single click to toggle between zoom in and zoom out
+    $('.zoom-container').on('click', function(e) {
+        if (!isZoomedIn) {
+            var clickX = e.pageX / $(this).width();
+            var clickY = e.pageY / $(this).height();
+
+            var originX = clickX * 100;
+            var originY = clickY * 100;
+
+            $(this).css({
+                'transform-origin': originX + '% ' + originY + '%',
+                'transform': 'scale(' + zoomScale + ')',
+                'min-width': '100vw',   // Prevent shrinking below viewport
+                'min-height': '100vh'    // Prevent shrinking below viewport
+            });
+
+            isZoomedIn = true;
+        } else {
+            // Zoom out to original size from the current center
+            var centerX = ($(window).width() / 2) / $(this).width();
+            var centerY = ($(window).height() / 2) / $(this).height();
+
+            var originX = centerX * 100;
+            var originY = centerY * 100;
+
+            $(this).css({
+                'transform-origin': originX + '% ' + originY + '%',
+                'transform': 'scale(1)',
+                'min-width': '100vw',    // Ensure reset keeps minimum width/height
+                'min-height': '100vh'
+            });
+
+            isZoomedIn = false;
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>
