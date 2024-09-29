@@ -25,6 +25,12 @@ html,
         height: 100%;
       }
 
+      .video video {
+        width: 103%; /* Set the video width to fill the container */
+        height: 103%; /* Set the video height to fill the container */
+        object-fit: cover; /* Cover the entire area without distortion */
+    }
+
       .descriptive-text {
         font-size: 27px;
         font-family: "Darker Grotesque", sans-serif;
