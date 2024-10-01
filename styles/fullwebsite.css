@@ -43,6 +43,10 @@ html,
         z-index: 11;
       }
 
+      .chrome-browser .descriptive-text {
+        top: 1022px;
+      }
+
       .logo {
         width: 90px;
         vertical-align: sub;
