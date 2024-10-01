@@ -64,7 +64,27 @@
       #AboutMe { top: 7px; left: 1530px; z-index: 6; }
       #Videography { top: 7px; left: 1635px; z-index: 7; }
       #Contact { top: 7px; left: 1775px; z-index: 8; }
+
+      .chrome-browser #Home {
+        top: 8px;
+        left: 1510px;
+      }
       
+      .chrome-browser #AboutMe {
+        top: 8px;
+        left: 1575px;
+      }
+  
+      .chrome-browser #Videography {
+        top: 8px;
+        left: 1680px;
+      }
+      
+      .chrome-browser #Contact {
+        top: 8px;
+        left: 1820px;
+      }
+
       .modal {
           display: none; /* Hidden by default */
           position: fixed; 
