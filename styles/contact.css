@@ -37,6 +37,26 @@
     #Videography { left: 1735px; z-index: 7; }
     #Projects { left: 1635px; z-index: 8; }
 
+    .chrome-browser #Home {
+      top: 10px;
+      left: 1500px;
+    }
+    
+    .chrome-browser #AboutMe {
+      top: 10px;
+      left: 1565px;
+    }
+
+    .chrome-browser #Projects {
+      top: 10px;
+      left: 1674px;
+    }
+    
+    .chrome-browser #Videography {
+      top: 10px;
+      left: 1775px;
+    }
+
     /* Contact Form Section */
     .contact-container {
       display: flex;
