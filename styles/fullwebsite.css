@@ -96,3 +96,28 @@ html,
         left: 170px;
         z-index: 8;
       }
+
+      .chrome-browser #Intro {
+        top: 825px;
+        left: 710px;
+      }
+      
+      .chrome-browser #AboutMe {
+        top: 720px;
+        left: 980px;
+      }
+      
+      .chrome-browser #Projects {
+        top: 530px;
+        left: 745px;
+      }
+      
+      .chrome-browser #Videography {
+        top: 405px;
+        left: 1265px;
+      }
+      
+      .chrome-browser #Contact {
+        top: 550px;
+        left: 160px;
+      }
