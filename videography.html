@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/videography.css">
+    <link rel="stylesheet" href="styles/mouse.css">
     <title>Videography</title>
     
     <!-- Preconnect to Google Fonts for better performance -->
@@ -126,8 +127,39 @@
               });
           });
       });
-  </script>
+    </script>
 
+    <script>
+      // Create the custom cursor
+      const cursor = document.createElement('div');
+      cursor.classList.add('cursor');
+      document.body.appendChild(cursor);
+
+      // Update cursor position based on mouse movement
+      document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+      });
+
+      // Add click effect
+      document.addEventListener('click', () => {
+      cursor.classList.add('click-effect');
+      // Remove the effect after a short duration
+      setTimeout(() => {
+          cursor.classList.remove('click-effect');
+      }, 200); // Duration should match the transition duration in CSS
+      });
+
+      // Listen to mouse down event for shrinking the cursor
+      document.addEventListener('mousedown', () => {
+      cursor.classList.add('hold-click');
+      });
+      // Listen to mouse up event to return the cursor to its normal size
+      document.addEventListener('mouseup', () => {
+      cursor.classList.remove('hold-click');
+      });
+    </script>
+    
     <!-- Navigation Links -->
     <div class="navigation">
         <a href="index.html" class="buttons">Home</a>
