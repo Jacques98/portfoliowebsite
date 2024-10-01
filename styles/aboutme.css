@@ -17,6 +17,11 @@ html, body {
   min-height: 100vh; /* Prevent shrinking smaller than the viewport */
 }
 
+.chrome-browser .zoom-container {
+  width: 102%; /* Prevent shrinking smaller than the viewport */
+  height: 102%; /* Prevent shrinking smaller than the viewport */
+}
+
 .video-background {
   position: absolute;
   top: 0;
@@ -26,6 +31,11 @@ html, body {
   overflow: hidden;
   object-fit: cover;
   z-index: 1;
+}
+
+.chrome-browser .video-background {
+  width: 102%;
+  height: 102%;
 }
 
 .download-btn {
@@ -86,7 +96,31 @@ html, body {
 }
 
 #Home { top: 150px; left: 1080px; z-index: 5; }
-#Intro { top: 150px; left: 1145px; z-index: 4; }
 #Projects { top: 150px; left: 1210px; z-index: 6; }
 #Contact { top: 150px; left: 1450px; z-index: 8; }
 #Videography { top: 150px; left: 1310px; z-index: 7; }
+
+.chrome-browser #Home {
+  top: 111px;
+  left: 1130px;
+}
+
+.chrome-browser #Projects {
+  top: 111px;
+  left: 1200px;
+}
+
+.chrome-browser #Videography {
+  top: 111px;
+  left: 1310px;
+}
+
+.chrome-browser #Contact {
+  top: 111px;
+  left: 1460px;
+}
+
+.chrome-browser .download-btn {
+  top: 95px;
+  left: 680px;
+}
