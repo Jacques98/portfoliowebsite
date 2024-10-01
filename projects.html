@@ -35,7 +35,6 @@
         <img src="Website_Assets/Projects/demo18.webp" alt="Image 18" aria-description="My friends at El Born">
     </div>
         <div class="WebText">
-            <a href="intro.html" id="Intro" class="buttons">Intro</a>
             <a href="index.html" id="Home" class="buttons">Home</a>
             <a href="aboutme.html" id="AboutMe" class="buttons">About Me</a>
             <a href="videography.html" id="Videography" class="buttons">Videography</a>
@@ -88,5 +87,15 @@
         }
     </script>
 
+    <script>
+        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
+        
+        if (isChrome) {
+        document.body.classList.add('chrome-browser');
+        console.log('Chrome detected, .chrome-browser class added.');
+        } else {
+        console.log('Not Chrome, no class added.');
+        }
+    </script>
 </body>
 </html>
