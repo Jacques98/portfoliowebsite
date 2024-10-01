@@ -5,6 +5,7 @@ html, body {
   height: 100%;
   overflow: hidden; /* Disable scrolling */
   font-family: 'Bebas Neue', sans-serif;
+  background-color: #000; /* Set background to black */
 }
 
 .zoom-container {
