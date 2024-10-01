@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/projects.css">
+    <link rel="stylesheet" href="styles/mouse.css">
     <title>Projects</title>
 </head>
 <body>
@@ -97,6 +98,37 @@
         } else {
         console.log('Neither Chrome nor Firefox, no class added.');
         }
-  </script>
+    </script>
+
+    <script>
+      // Create the custom cursor
+      const cursor = document.createElement('div');
+      cursor.classList.add('cursor');
+      document.body.appendChild(cursor);
+    
+      // Update cursor position based on mouse movement
+      document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.pageX + 'px';
+      cursor.style.top = e.pageY + 'px';
+      });
+    
+      // Add click effect
+      document.addEventListener('click', () => {
+      cursor.classList.add('click-effect');
+      // Remove the effect after a short duration
+      setTimeout(() => {
+          cursor.classList.remove('click-effect');
+      }, 200); // Duration should match the transition duration in CSS
+      });
+    
+      // Listen to mouse down event for shrinking the cursor
+      document.addEventListener('mousedown', () => {
+      cursor.classList.add('hold-click');
+      });
+      // Listen to mouse up event to return the cursor to its normal size
+      document.addEventListener('mouseup', () => {
+      cursor.classList.remove('hold-click');
+      });
+    </script>
 </body>
 </html>
