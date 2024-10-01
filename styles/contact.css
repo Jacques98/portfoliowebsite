@@ -31,7 +31,7 @@
     }
 
     /* Positioning for each navigation link */
-    #Home { left: 1400px; z-index: 5; }
+    #Home { left: 1465px; z-index: 5; }
     #AboutMe { left: 1530px; z-index: 6; }
     #Videography { left: 1735px; z-index: 7; }
     #Projects { left: 1635px; z-index: 8; }
