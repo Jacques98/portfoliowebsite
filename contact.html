@@ -30,15 +30,16 @@
       </form>
     </div>
 
-  <script>
-    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
-    
-    if (isChrome) {
-    document.body.classList.add('chrome-browser');
-    console.log('Chrome detected, .chrome-browser class added.');
-    } else {
-    console.log('Not Chrome, no class added.');
-    }
-  </script>
+    <script>
+      var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
+      var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox detection
+
+      if (isChrome || isFirefox) {
+        document.body.classList.add('chrome-browser');
+        console.log('Chrome or Firefox detected, .chrome-browser class added.');
+      } else {
+        console.log('Neither Chrome nor Firefox, no class added.');
+      }
+    </script>
   </body>
 </html>
