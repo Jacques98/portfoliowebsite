@@ -32,6 +32,25 @@
     </div>
 
     <script>
+      $(document).ready(function() {
+          // Attach an event handler to the mousemove event
+          $(document).mousemove(function(event) {
+              $('html, body').scrollTop(function(index, currentScrollPosition) {
+                  var windowHeight = $(window).height();
+                  var verticalDifference = event.clientY - windowHeight / 2;
+                  return currentScrollPosition + verticalDifference * 0.02;
+              });
+
+              $('html, body').scrollLeft(function(index, currentScrollPosition) {
+                  var windowWidth = $(window).width();
+                  var horizontalDifference = event.clientX - windowWidth / 2;
+                  return currentScrollPosition + horizontalDifference * 0.02;
+              });
+          });
+      });
+    </script>
+<!--
+    <script>
         $(document).ready(function() {
     // Track zoom state and mouse position
  //    var isZoomedIn = false;
@@ -104,7 +123,7 @@
     });
 });
     </script>
-
+-->
     <script>
       var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
       var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox detection
