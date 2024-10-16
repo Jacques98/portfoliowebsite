@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/aboutme.css">
-    <link rel="stylesheet" href="styles/mouse.css">
+    <!-- <link rel="stylesheet" href="styles/mouse.css"> -->
 </head>
 
 <body>
@@ -25,7 +25,7 @@
             <a href="projects.html" id="Projects" class="parallax-text">Projects</a>
             <a href="videography.html" id="Videography" class="parallax-text">Videography</a>
             <a href="contact.html" id="Contact" class="parallax-text">Contact</a>
-            <a class="tip">Click anywhere to zoom in and out.</a>
+            <!-- <a class="tip">Click anywhere to zoom in and out.</a> -->
             <!-- Download button -->
             <a href="Website_Assets/SiteResume.pdf" download="SiteResume - Alessandro Rabellino" class="download-btn" id="Download">Download File</a>
         </div>
@@ -34,8 +34,8 @@
     <script>
         $(document).ready(function() {
     // Track zoom state and mouse position
-    var isZoomedIn = false;
-    var zoomScale = 2;
+ //    var isZoomedIn = false;
+ //    var zoomScale = 2;
     var mouseX = 0, mouseY = 0;
 
     // Handle mouse movement for smooth scrolling
@@ -63,43 +63,43 @@
     }
 
     // Prevent zoom when clicking the download button
-    $('#Download', '#Intro', '#Videography', '#Home', '#Projects', '#Contact').on('click', function(e) {
-        e.stopPropagation(); // Prevent click from triggering zoom
+    // $('#Download', '#Intro', '#Videography', '#Home', '#Projects', '#Contact').on('click', function(e) {
+        // e.stopPropagation(); // Prevent click from triggering zoom
     });
 
     // Single click to toggle between zoom in and zoom out
-    $('.zoom-container').on('click', function(e) {
-        if (!isZoomedIn) {
-            var clickX = e.pageX / $(this).width();
-            var clickY = e.pageY / $(this).height();
+    // $('.zoom-container').on('click', function(e) {
+       //  if (!isZoomedIn) {
+          //   var clickX = e.pageX / $(this).width();
+             //var clickY = e.pageY / $(this).height();
 
-            var originX = clickX * 100;
-            var originY = clickY * 100;
+ //            var originX = clickX * 100;
+    //         var originY = clickY * 100;
 
-            $(this).css({
-                'transform-origin': originX + '% ' + originY + '%',
-                'transform': 'scale(' + zoomScale + ')',
-                'min-width': '100vw',   // Prevent shrinking below viewport
-                'min-height': '100vh'    // Prevent shrinking below viewport
+       //      $(this).css({
+          //       'transform-origin': originX + '% ' + originY + '%',
+             //    'transform': 'scale(' + zoomScale + ')',
+                // 'min-width': '100vw',   // Prevent shrinking below viewport
+              //   'min-height': '100vh'    // Prevent shrinking below viewport
             });
 
-            isZoomedIn = true;
-        } else {
+          //   isZoomedIn = true;
+        // } else {
             // Zoom out to original size from the current center
-            var centerX = ($(window).width() / 2) / $(this).width();
-            var centerY = ($(window).height() / 2) / $(this).height();
+           //  var centerX = ($(window).width() / 2) / $(this).width();
+           //  var centerY = ($(window).height() / 2) / $(this).height();
 
-            var originX = centerX * 100;
-            var originY = centerY * 100;
+           // var originX = centerX * 100;
+           //  var originY = centerY * 100;
 
-            $(this).css({
-                'transform-origin': originX + '% ' + originY + '%',
-                'transform': 'scale(1)',
-                'min-width': '100vw',    // Ensure reset keeps minimum width/height
-                'min-height': '100vh'
+            // $(this).css({
+               //  'transform-origin': originX + '% ' + originY + '%',
+               //  'transform': 'scale(1)',
+               //  'min-width': '100vw',    // Ensure reset keeps minimum width/height
+                // 'min-height': '100vh'
             });
 
-            isZoomedIn = false;
+   //          isZoomedIn = false;
         }
     });
 });
@@ -119,32 +119,32 @@
 
     <script>
       // Create the custom cursor
-      const cursor = document.createElement('div');
-      cursor.classList.add('cursor');
-      document.body.appendChild(cursor);
+ //      const cursor = document.createElement('div');
+ //      cursor.classList.add('cursor');
+  //     document.body.appendChild(cursor);
 
       // Update cursor position based on mouse movement
-      document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
-      });
+   //    document.addEventListener('mousemove', (e) => {
+ //      cursor.style.left = e.pageX + 'px';
+   //    cursor.style.top = e.pageY + 'px';
+ //      });
 
       // Add click effect
-      document.addEventListener('click', () => {
-      cursor.classList.add('click-effect');
-      // Remove the effect after a short duration
-      setTimeout(() => {
-          cursor.classList.remove('click-effect');
-      }, 200); // Duration should match the transition duration in CSS
+   //    document.addEventListener('click', () => {
+ //      cursor.classList.add('click-effect');
+  //     // Remove the effect after a short duration
+  //     setTimeout(() => {
+  //         cursor.classList.remove('click-effect');
+  //     }, 200); // Duration should match the transition duration in CSS
       });
-
+ //
       // Listen to mouse down event for shrinking the cursor
-      document.addEventListener('mousedown', () => {
-      cursor.classList.add('hold-click');
-      });
-      // Listen to mouse up event to return the cursor to its normal size
-      document.addEventListener('mouseup', () => {
-      cursor.classList.remove('hold-click');
+   //    document.addEventListener('mousedown', () => {
+   //    cursor.classList.add('hold-click');
+  //     });
+  //     // Listen to mouse up event to return the cursor to its normal size
+  //     document.addEventListener('mouseup', () => {
+   //    cursor.classList.remove('hold-click');
       });
     </script>
 </body>
