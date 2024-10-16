@@ -70,7 +70,7 @@ html, body {
   color: red;
   opacity: 0.6;
 }
-
+/*
 .tip {
   font-family: "Darker Grotesque", sans-serif;
   font-weight: 700;
@@ -83,7 +83,7 @@ html, body {
   left: 830px;
   z-index: 8;
 }
-
+*/
 .parallax-text {
   font-size: 33px;
   color: white;
