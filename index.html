@@ -15,7 +15,7 @@
   </head>
   <body>
     <div class="video">
-      <video autoplay muted loop disableRemotePlayback>
+      <video class="video-background" autoplay muted loop disableRemotePlayback>
         <source src="Website_Assets/MainWeb.mp4" type="video/mp4">
       </video>
     </div>
@@ -56,63 +56,26 @@
                   return currentScrollPosition + horizontalDifference * 0.02;
               });
           });
-
-          // Attach an event handler to the scroll event
-          $(window).scroll(function() {
-              // Calculate the parallax effect for the text
-              var scrollTop = $(this).scrollTop();
-              var scrollLeft = $(this).scrollLeft();
-              var parallaxText = $('.parallax-text');
-
-              // Apply the parallax effect
-              parallaxText.css({
-                  'transform': 'translate(' + (scrollLeft * 0.1) + 'px, ' + (scrollTop * 0.1) + 'px)'
-              });
-          });
       });
     </script>
 
     <script>
       var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
-      
+      var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox detection
+
       if (isChrome) {
         document.body.classList.add('chrome-browser');
         console.log('Chrome detected, .chrome-browser class added.');
       } else {
         console.log('Not Chrome, no class added.');
       }
+
+      if (isFirefox) {
+        document.body.classList.add('firefox-browser');
+        console.log('Firefox detected, .firefox-browser class added.');
+      } else {
+        console.log('Not Firefox, no class added.');
+      }
     </script>
-<!--
-    <script>
-      // Create the custom cursor
-      const cursor = document.createElement('div');
-      cursor.classList.add('cursor');
-      document.body.appendChild(cursor);
-
-      // Update cursor position based on mouse movement
-      document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.pageX + 'px';
-      cursor.style.top = e.pageY + 'px';
-      });
-
-      // Add click effect
-      document.addEventListener('click', () => {
-      cursor.classList.add('click-effect');
-      // Remove the effect after a short duration
-      setTimeout(() => {
-          cursor.classList.remove('click-effect');
-      }, 200); // Duration should match the transition duration in CSS
-      });
-
-      // Listen to mouse down event for shrinking the cursor
-      document.addEventListener('mousedown', () => {
-      cursor.classList.add('hold-click');
-      });
-      // Listen to mouse up event to return the cursor to its normal size
-      document.addEventListener('mouseup', () => {
-      cursor.classList.remove('hold-click');
-      });
-    </script>
-    -->
   </body>
 </html>

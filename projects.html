@@ -34,8 +34,10 @@
         <img src="Website_Assets/Projects/demo16.webp" alt="Image 16" aria-description="My uncle">
         <img src="Website_Assets/Projects/demo17.webp" alt="Image 17" aria-description="A beautiful photography wall in El Born">
         <img src="Website_Assets/Projects/demo18.webp" alt="Image 18" aria-description="My friends at El Born">
+        <img src="Website_Assets/Projects/demo19.webp" alt="Image 19" aria-description="Skater at El Born">
+        <img src="Website_Assets/Projects/demo20.webp" alt="Image 20" aria-description="Skater at El Born">
     </div>
-        <div class="WebText">
+        <div class="navigation">
             <a href="index.html" id="Home" class="buttons">Home</a>
             <a href="aboutme.html" id="AboutMe" class="buttons">About Me</a>
             <a href="videography.html" id="Videography" class="buttons">Videography</a>
@@ -89,15 +91,22 @@
     </script>
 
     <script>
-        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
-        var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox detection
+      var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
+      var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox detection
 
-        if (isChrome || isFirefox) {
+      if (isChrome) {
         document.body.classList.add('chrome-browser');
-        console.log('Chrome or Firefox detected, .chrome-browser class added.');
-        } else {
-        console.log('Neither Chrome nor Firefox, no class added.');
-        }
+        console.log('Chrome detected, .chrome-browser class added.');
+      } else {
+        console.log('Not Chrome, no class added.');
+      }
+
+      if (isFirefox) {
+        document.body.classList.add('firefox-browser');
+        console.log('Firefox detected, .firefox-browser class added.');
+      } else {
+        console.log('Not Firefox, no class added.');
+      }
     </script>
 <!--
     <script>

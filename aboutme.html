@@ -128,11 +128,18 @@
       var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor) && !/OPR|Edge|Edg/.test(navigator.userAgent);
       var isFirefox = typeof InstallTrigger !== 'undefined'; // Firefox detection
 
-      if (isChrome || isFirefox) {
+      if (isChrome) {
         document.body.classList.add('chrome-browser');
-        console.log('Chrome or Firefox detected, .chrome-browser class added.');
+        console.log('Chrome detected, .chrome-browser class added.');
       } else {
-        console.log('Neither Chrome nor Firefox, no class added.');
+        console.log('Not Chrome, no class added.');
+      }
+
+      if (isFirefox) {
+        document.body.classList.add('firefox-browser');
+        console.log('Firefox detected, .firefox-browser class added.');
+      } else {
+        console.log('Not Firefox, no class added.');
       }
     </script>
 
@@ -155,7 +162,6 @@
   //     setTimeout(() => {
   //         cursor.classList.remove('click-effect');
   //     }, 200); // Duration should match the transition duration in CSS
-      });
  //
       // Listen to mouse down event for shrinking the cursor
    //    document.addEventListener('mousedown', () => {
@@ -164,7 +170,6 @@
   //     // Listen to mouse up event to return the cursor to its normal size
   //     document.addEventListener('mouseup', () => {
    //    cursor.classList.remove('hold-click');
-      });
     </script>
 </body>
 </html>
