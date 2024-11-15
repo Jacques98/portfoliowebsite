@@ -16,11 +16,13 @@
       .image-gallery {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Dynamically fit as many images as possible in columns */
-          grid-template-rows: repeat(auto-fit, minmax(200px, 1fr)); /* Dynamically fit rows to fill the screen */
+          grid-auto-rows: 200px; /* Dynamically fit rows to fill the screen */
           gap: 2px; /* Small gap between images */
           width: 100vw;
           height: 90vh;
           z-index: 1;
+          overflow: hidden;
+          margin-top: 15px;
       }
 
       /* Styling the images to cover their grid area */
@@ -36,14 +38,21 @@
       /* Hover effect to bring the images back to color */
       .image-gallery img:hover {
           filter: grayscale(0); /* Full color on hover */
-          transform: scale(1.5); /* Expand the image */
+          transform: scale(1.3); /* Expand the image */
           z-index: 10; /* Make sure the hovered image is on top */
+      }
+
+      .navigation {
+        position: absolute;
+        top: 7px;
+        right: 10px;
+        display: flex;
+        gap: 5px;
       }
 
       .buttons {
           font-size: 33px;
           color: white;
-          position: absolute;
           cursor: pointer;
           transition: opacity 0.15s, transform 0.5s ease-in-out;
           text-decoration: none;
@@ -57,31 +66,6 @@
       .buttons:active {
           color: red;
           opacity: 0.6;
-      }
-
-      #Home { top: 7px; left: 1465px; z-index: 5; }
-      #AboutMe { top: 7px; left: 1530px; z-index: 6; }
-      #Videography { top: 7px; left: 1635px; z-index: 7; }
-      #Contact { top: 7px; left: 1775px; z-index: 8; }
-
-      .chrome-browser #Home {
-        top: 8px;
-        left: 1510px;
-      }
-      
-      .chrome-browser #AboutMe {
-        top: 8px;
-        left: 1575px;
-      }
-  
-      .chrome-browser #Videography {
-        top: 8px;
-        left: 1680px;
-      }
-      
-      .chrome-browser #Contact {
-        top: 8px;
-        left: 1820px;
       }
 
       .modal {

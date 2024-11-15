@@ -34,18 +34,6 @@ html, body {
   z-index: 1;
 }
 
-.firefox-browser .video-background {
-  width: 1958px;
-  height: 1101px;
-}
-
-.chrome-browser .video-background {
-  width: 102vw; /* Full viewport width */
-  height: auto; /* Allow height to grow */
-  min-width: 90vw; /* Always fill the viewport width */
-  min-height: 100vh; /* Always fill the viewport height */
-}
-
 .download-btn {
   font-size: 30px;
   color: white;
@@ -113,7 +101,7 @@ html, body {
 .chrome-browser #Videography { top: 150px; left: 1310px; }
 .chrome-browser #Contact { top: 150px; left: 1460px; }
 
-.firefox-browser #Home { top: 150px; left: 1135px; }
-.firefox-browser #Projects { top: 150px; left: 1210px; }
-.firefox-browser #Videography { top: 150px; left: 1320px; }
-.firefox-browser #Contact { top: 150px; left: 1470px; }
+.firefox-browser #Home { top: 150px; left: 1110px; }
+.firefox-browser #Projects { top: 150px; left: 1180px; }
+.firefox-browser #Videography { top: 150px; left: 1290px; }
+.firefox-browser #Contact { top: 150px; left: 1440px; }
