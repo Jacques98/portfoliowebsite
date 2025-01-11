@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio showcasing photography and videography work">
+    <title>Portfolio Site</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <div class="crt"></div>
+  </head>
+  <body>
+
+    <img src="Website_Assets/mikalogo.png" class="mikalogo">
+    <img src="Website_Assets/Bubble.png" class="bubble">
+
+    <!-- Video Background Section -->
+    <div class="video" role="presentation">
+      <video 
+        class="video-background" 
+        autoplay 
+        muted 
+        loop 
+        disableRemotePlayback
+        aria-hidden="true"
+        playsinline
+      >
+        <source src="BilliardsBig.webm" type="video/webm">
+        <p>Your browser doesn't support HTML5 video. Here's a <a href="BilliardsBig.webm">link to the video</a> instead.</p>
+      </video>
+    </div>
+
+    <!-- Navigation Menu -->
+    <div>
+      <a 
+        id="Contact" 
+        onclick="openContactForm()" 
+        class="WebTextSub"
+      >
+        Contact
+      </a>
+      <a 
+        id="Photography" 
+        class="WebTextSub" 
+        onclick="showPhotographyGallery()"
+
+      >
+        Photography
+      </a>
+      <a
+      id="Videography"
+      class="WebTextSub"
+      onclick="showVideographyGallery()">
+        Videography
+      </a>
+    </div>
+
+    <!-- Photography Gallery -->
+    <div id="photographyOverlay" role="dialog" aria-label="Photography Gallery" aria-hidden="true">
+      <button 
+        class="close-btn" 
+        onclick="closePhotographyGallery()"
+        aria-label="Close gallery"
+      >
+        ×
+      </button>
+      <div class="gallery-grid">
+        <img 
+          src="Website_Assets/demo1.webp" 
+          class="base" 
+          loading="lazy"
+          draggable="false" 
+          onclick="enlargeImage(this)"
+        >
+        <img 
+          src="Website_Assets/demo2.webp" 
+          class="base" 
+          loading="lazy"
+          draggable="false" 
+          onclick="enlargeImage(this)"
+        >
+        <img 
+          src="Website_Assets/demo3.webp" 
+          class="base" 
+          loading="lazy"
+          draggable="false" 
+          onclick="enlargeImage(this)"
+        >
+        <img src="Website_Assets/demo4.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo5.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo6.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo7.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo8.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo9.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo10.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo11.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+        <img src="Website_Assets/demo12.webp" class="base" loading="lazy" draggable="false" onclick="enlargeImage(this)">
+      </div>
+    </div>
+    
+    <div id="videographyOverlay" role="dialog" aria-label="Videography Gallery" aria-hidden="true">
+      <button 
+        class="close-btn" 
+        onclick="closeVideographyGallery()"
+        aria-label="Close gallery"
+      >
+        ×
+      </button>
+      <div class="gallery-grid">
+        <img 
+          src="Thumbnails/FightNight thumbnail.webp" 
+          alt="Detailed description of image 1" 
+          class="base" 
+          loading="lazy"
+          draggable="false" 
+          onclick="openVideo('3KW-RTVyufA')"
+        >
+        <img 
+          src="Thumbnails/Gorifitti thumbnail.webp" 
+          alt="Detailed description of image 2" 
+          class="base" 
+          loading="lazy"
+          draggable="false" 
+          onclick="openVideo('FMPaCAriRsI')"
+        >
+        <img 
+          src="Thumbnails/jewday thumbnail.webp" 
+          alt="Detailed description of image 3" 
+          class="base" 
+          loading="lazy"
+          draggable="false" 
+          onclick="openVideo('oSQVzXwHjjc')"
+        >
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div id="contactOverlay" role="dialog" aria-label="Contact Form" aria-hidden="true" class="contact-modal">
+      <div class="modal-header" onmousedown="startDragging(event, this.parentElement)">
+        <h2 id="contactFormTitle" class="contactTitle">Contact Me</h2>
+        <button class="close-btn" onclick="closeContactForm()" aria-label="Close form">&times;</button>
+      </div>
+      <div class="modal-content">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+          </div>
+          <button class="send-btn" type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      let isDragging = false;
+      let currentModal = null;
+      let initialX, initialY, initialLeft, initialTop;
+      let zIndexCounter = 1000; // Start with a base z-index
+
+      function showPhotographyGallery() {
+          const overlay = document.getElementById("photographyOverlay");
+          overlay.style.display = "block";
+          bringToFront(overlay); // Ensure it's on top when opened
+      }
+
+      function closePhotographyGallery() {
+          const overlay = document.getElementById("photographyOverlay");
+          overlay.style.display = "none";
+      }
+
+      function showVideographyGallery() {
+          const overlay = document.getElementById("videographyOverlay");
+          overlay.style.display = "block";
+          bringToFront(overlay); // Ensure it's on top when opened
+      }
+
+      function closeVideographyGallery() {
+          const overlay = document.getElementById("videographyOverlay");
+          overlay.style.display = "none";
+      }
+
+      function enlargeImage(img) {
+          const modalId = `modal-${Date.now()}`;
+          const modal = document.createElement("div");
+          modal.className = "image-modal";
+          modal.id = modalId;
+
+          modal.style.height = "50%";
+          modal.style.transform = "translate(-50%, -50%)";
+
+          modal.innerHTML = `
+              <div class="modal-header">
+                  <span>‎ </span>
+                  <button class="close-btn" onclick="closeModal('${modalId}')">&times;</button>
+              </div>
+              <div class="modal-content">
+                  <img src="${img.src}" alt="${img.alt}">
+              </div>
+              <div class="resize-handle se"></div>
+          `;
+
+          document.body.appendChild(modal);
+
+          const header = modal.querySelector('.modal-header');
+          header.addEventListener('mousedown', (e) => startDragging(e, modal));
+          initializeResize(modal);
+
+          // Set initial z-index and bring to front
+          modal.style.zIndex = zIndexCounter++;
+          modal.addEventListener('mousedown', () => bringToFront(modal));
+      }
+
+      function openVideo(videoId, title) {
+          const modalId = `modal-${Date.now()}`;
+          const modal = document.createElement("div");
+          modal.className = "video-modal";
+          modal.id = modalId;
+
+          modal.style.width = "75%";
+          modal.style.height = "75%";
+          modal.style.transform = "translate(-50%, -50%)";
+
+          const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+
+          modal.innerHTML = `
+              <div class="modal-header">
+                  <span>‎ </span>
+                  <button class="close-btn" onclick="closeModal('${modalId}')">&times;</button>
+              </div>
+              <div class="modal-content video-content">
+                  <iframe 
+                      src="${embedUrl}" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                      allowfullscreen>
+                  </iframe>
+              </div>
+              <div class="resize-handle se"></div>
+          `;
+
+          document.body.appendChild(modal);
+
+          const header = modal.querySelector('.modal-header');
+          header.addEventListener('mousedown', (e) => startDragging(e, modal));
+          initializeResize(modal);
+
+          // Set initial z-index and bring to front
+          modal.style.zIndex = zIndexCounter++;
+          modal.addEventListener('mousedown', () => bringToFront(modal));
+      }
+
+      function closeModal(modalId) {
+          const modal = document.getElementById(modalId);
+          if (modal) {
+              modal.remove();
+          }
+      }
+
+      function startDragging(e, modal) {
+          if (e.target.closest('.close-btn')) return;
+
+          isDragging = true;
+          currentModal = modal;
+
+          // Bring modal to the front
+          bringToFront(modal);
+
+          const rect = modal.getBoundingClientRect();
+
+          modal.style.transform = 'none';
+          modal.style.left = `${rect.left}px`;
+          modal.style.top = `${rect.top}px`;
+
+          initialX = e.clientX;
+          initialY = e.clientY;
+          initialLeft = rect.left;
+          initialTop = rect.top;
+
+          document.addEventListener('mousemove', drag);
+          document.addEventListener('mouseup', stopDragging);
+      }
+
+      function drag(e) {
+          if (!isDragging || !currentModal) return;
+
+          e.preventDefault();
+
+          const deltaX = e.clientX - initialX;
+          const deltaY = e.clientY - initialY;
+
+          currentModal.style.left = `${initialLeft + deltaX}px`;
+          currentModal.style.top = `${initialTop + deltaY}px`;
+      }
+
+      function stopDragging() {
+          isDragging = false;
+          currentModal = null;
+          document.removeEventListener('mousemove', drag);
+          document.removeEventListener('mouseup', stopDragging);
+      }
+
+      function initializeResize(modal) {
+          const handle = modal.querySelector('.resize-handle.se');
+          let isResizing = false;
+          let originalWidth, originalHeight, originalX, originalY;
+
+          handle.addEventListener('mousedown', (e) => {
+              isResizing = true;
+              originalWidth = modal.offsetWidth;
+              originalHeight = modal.offsetHeight;
+              originalX = e.clientX;
+              originalY = e.clientY;
+
+              bringToFront(modal); // Bring to front on resize
+
+              document.addEventListener('mousemove', resize);
+              document.addEventListener('mouseup', stopResize);
+          });
+
+          function resize(e) {
+              if (!isResizing) return;
+
+              const deltaX = e.clientX - originalX;
+              const deltaY = e.clientY - originalY;
+
+              const newWidth = Math.max(300, originalWidth + deltaX);
+              const newHeight = Math.max(200, originalHeight + deltaY);
+
+              modal.style.width = newWidth + 'px';
+              modal.style.height = newHeight + 'px';
+          }
+
+          function stopResize() {
+              isResizing = false;
+              document.removeEventListener('mousemove', resize);
+              document.removeEventListener('mouseup', stopResize);
+          }
+      }
+
+      function bringToFront(modal) {
+          modal.style.zIndex = zIndexCounter++; // Increment zIndexCounter and apply it
+      }
+
+      // Close modals with Escape key
+      document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+              closePhotographyGallery();
+              const modals = document.querySelectorAll('.image-modal');
+              modals.forEach(modal => modal.remove());
+          }
+      });
+
+      // Contact Form Functions
+      function openContactForm() {
+          const overlay = document.getElementById("contactOverlay");
+          overlay.style.display = "block";
+          overlay.setAttribute("aria-hidden", "false");
+      }
+
+      function closeContactForm() {
+          const overlay = document.getElementById("contactOverlay");
+          overlay.style.display = "none";
+          overlay.setAttribute("aria-hidden", "true");
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        // Add your form submission logic here
+        const formData = new FormData(event.target);
+        console.log(Object.fromEntries(formData));
+        // Close form after submission
+        closeContactForm();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,637 @@
+/* Existing CSS */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: #000;
+  text-shadow: 0.06rem 0 0.06rem #ea36af, -0.125rem 0 0.06rem #75fa69;
+  animation-duration: 0.01s;
+  animation-name: textflicker;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+p {
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@keyframes shakeY {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(0, 10px, 0);
+  }
+}
+
+@keyframes textflicker {
+  from {
+    text-shadow: 1px 0 0 #ea36af, -2px 0 0 #75fa69;
+  }
+  to {
+    text-shadow: 2px 0.5px 2px #ea36af, -1px -0.5px 2px #75fa69;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+
+  20%,
+  60% {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+  }
+}
+
+.slideInDown {
+  animation-duration: calc(var(--animate-duration) * 2);
+  animation-name: slideInDown;
+}
+
+.mikalogo {
+  position: fixed; /* Use fixed positioning */
+  z-index: 10;
+  top: 2%; /* Distance from the top */
+  right: 2%; /* Distance from the right */
+  width: 5%;
+}
+
+.mikalogo:hover {
+  animation: shakeY 1s ease;
+}
+
+.bubble {
+  position: fixed;
+  z-index: 11;
+  top: -30%; /* Distance from the top */
+  right: 20%; /* Distance from the right */
+  width: 15%;
+}
+
+.bubble:clicked {
+  animation: slideInDown 5s ease;
+}
+
+.crt::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 200;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+@keyframes flicker {
+  0% {
+  opacity: 0.27861;
+  }
+  5% {
+  opacity: 0.34769;
+  }
+  10% {
+  opacity: 0.23604;
+  }
+  15% {
+  opacity: 0.10626;
+  }
+  20% {
+  opacity: 0.18128;
+  }
+  25% {
+  opacity: 0.10626;
+  }
+  30% {
+  opacity: 0.18128;
+  }
+  35% {
+  opacity: 0.23604;
+  }
+}
+
+.crt::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 200;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+.video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.video-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.logo {
+  width: 90px;
+  vertical-align: sub;
+}
+
+.WebTextSub {
+  font-family: "Jura", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  transition: opacity 0.15s;
+  font-size: 70px;
+  color: grey;
+  position: absolute;
+  z-index: 8;
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+}
+
+.WebTextSub:hover {
+  color: white;
+  opacity: 0.8;
+}
+
+.WebTextSub:active {
+  color: red;
+  opacity: 0.7;
+}
+
+#Photography {
+  position: absolute;
+  top: 2.5%; /* Custom vertical position */
+  left: 4%; /* Custom horizontal position */
+}
+
+#Videography {
+  position: absolute;
+  top: 2.5%; /* Custom vertical position */
+  left: 37%; /* Custom horizontal position */
+}
+
+#Contact {
+  position: absolute;
+  top: 2.5%; /* Custom vertical position */
+  left: 70%; /* Custom horizontal position */
+}
+
+/* Contact Form Overlay */
+#contactOverlay {
+  display: none;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contact Form Modal Content */
+#contactOverlay .modal-content {
+  background-color: #333; /* Dark modal background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 400px; /* Limit max size */
+  padding: 20px;
+  text-align: left;
+  overflow: hidden;
+}
+
+/* Modal Header */
+#contactOverlay .modal-header {
+  display: flex;
+  margin-top: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: #5a2362;
+  color: white;
+}
+
+#contactOverlay .modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+#contactOverlay .modal-header .close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#contactOverlay .modal-header .close-btn:hover {
+  color: #42943a;
+}
+
+/* Form Styles */
+#contactOverlay form {
+  padding: 15px;
+  padding-left: 5px;
+}
+
+#contactOverlay .form-group {
+  margin-bottom: 15px;
+}
+
+#contactOverlay .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+}
+
+#contactOverlay .form-group input,
+#contactOverlay .form-group textarea {
+  width: 75%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #444;
+  color: white;
+  font-size: 14px;
+}
+
+#contactOverlay .form-group textarea {
+  resize: none;
+}
+
+#contactOverlay .form-group input:focus,
+#contactOverlay .form-group textarea:focus {
+  outline: none;
+  border-color: #5a2362;
+  background-color: #555;
+}
+
+/* Submit Button */
+#contactOverlay .send-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #5a2362;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#contactOverlay .send-btn:hover {
+  background-color: #42943a;
+}
+
+
+.close-btn {
+  position: absolute;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Style for the centered gallery overlay */
+#photographyOverlay {
+  display: none;
+  position: fixed;
+  top: 55%;
+  left: 15%;
+  width: 500px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  text-align: center;
+  border: 1px solid #5a2362;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease-out;
+}
+
+#photographyOverlay img {
+  width: 150px; /* Lower resolution */
+  height: 106px;
+  margin: 10px;
+  border: 3px solid #5a2362;
+  border-radius: 8px;
+  opacity: 80%;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+#photographyOverlay img:hover {
+  transform: scale(1.1);
+  border-color: #42943a;
+}
+
+/* Close button for the gallery */
+#photographyOverlay .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #5a2362;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+#photographyOverlay .close-btn:hover {
+  color: #42943a;
+}
+
+/* Existing CSS */
+.image-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: auto; /* Allow dynamic width based on content */
+  max-width: 90%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 90%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(89, 35, 97, 0.7);
+  z-index: 20;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  user-select: none; /* Prevent text selection while moving */
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  margin-top: 5px;
+  opacity: 0.7;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content {
+  height: calc(100%);
+  width: calc(100%); /* Adjust for header height */
+}
+
+.modal-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.close-btn {
+  background: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 100;
+  right: 1px;
+}
+
+.close-btn:hover {
+  color: #42943a;
+}
+
+/* Resize handles */
+.resize-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #5a2362;
+  border: 1px solid #5a2362;
+}
+
+.resize-handle.se {
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  margin: 20px;
+  overflow: hidden;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Additional styles for video gallery */
+#videographyOverlay {
+  display: none;
+  position: fixed;
+  top: 42.5%;
+  left: 48%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  padding: 20px;
+  border: 1px solid #5a2362;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.2s ease-out;
+}
+
+#videographyOverlay img {
+  width: 250px; /* Lower resolution */
+  margin: 10px;
+  border: 3px solid #5a2362;
+  border-radius: 8px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+#videographyOverlay img:hover {
+  transform: scale(1.1);
+  border-color: #42943a;
+}
+
+/* Close button for the gallery */
+#videographyOverlay .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #5a2362;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+}
+
+#videographyOverlay .close-btn:hover {
+  color: #42943a;
+}
+
+.video-thumbnail::after {
+  content: "▶";
+  font-size: 48px;
+  color: white;
+  position: absolute;
+}
+
+.modal-content video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 70%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(89, 35, 97, 0.7);
+  z-index: 20;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  user-select: none; /* Prevent text selection while moving */
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  color: white;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 0rem;
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+
+button.send-btn {
+  background-color: #5a2362;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.send-btn:hover {
+  background-color: #42943a;
+}
+
+#contactOverlay {
+  display: none;
+  color: white;
+}
+
+.video-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 90%;
+  max-height: 90%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(89, 35, 97, 0.7);
+  z-index: 20;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  user-select: none; /* Prevent text selection while moving */
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.video-modal .modal-content {
+  width: 100%;
+  height: 97%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-modal iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove iframe border */
+}
+
+/* Existing CSS */
+.contact-modal {
+  position: fixed;
+  top: 36%;
+  left: 77%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(89, 35, 97, 0.7);
+  z-index: 20;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  user-select: none; /* Prevent text selection while moving */
+  overflow: hidden;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease-out;
+}
