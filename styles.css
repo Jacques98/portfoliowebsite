@@ -183,7 +183,7 @@ p {
   font-weight: 300;
   font-style: normal;
   transition: opacity 0.15s;
-  font-size: 70px;
+  font-size: 4vw;
   color: grey;
   position: absolute;
   z-index: 8;
